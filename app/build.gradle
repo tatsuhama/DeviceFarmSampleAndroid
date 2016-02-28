@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'devicefarm'
 
 android {
     compileSdkVersion 23
@@ -25,4 +26,20 @@ dependencies {
     androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.1'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
+}
+
+devicefarm {
+
+    projectName "DeviceFarmSampleAndroid" // required: Must already exists.
+
+//    devicePool "Top Devices" // optional: Defaults to "Top Devices"
+    devicePool "Nexus 5 5.0.1"
+
+//    useUnmeteredDevices() // optional if you wish to use your un-metered devices
+
+    authentication {
+        accessKey "aws-iam-user-accesskey"
+        secretKey "aws-iam-user-accesskey"
+    }
+
 }
